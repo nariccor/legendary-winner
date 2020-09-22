@@ -12,4 +12,9 @@ const authRoutes = require("./routes/jwtAuth");
 //Routes middleware
 app.use("/auth", authRoutes);
 
+app.get('/', (request, response) => {
+    response.json({ info: 'Node.js, Express, and Postgres API' })
+  })
+
+
 app.listen(3000, () => console.log("server is running on port 3000"));
