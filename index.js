@@ -1,5 +1,10 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
+
+//middlewares
+app.use(express.json()); // req.body w/o bodyParse
+app.use(cors()); // domains interactions
 
 //Import Routes
 const authRoutes = require("./routes/jwtAuth");
