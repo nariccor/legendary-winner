@@ -1,8 +1,10 @@
 const pool = require('../lib/db');
 const router = require("express").Router();
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const validation = require('../middleware/validation');
 
-router.post("/register", async (req, res) =>{
+//register 
+router.post("/register", validation ,async (req, res) =>{
     try {
         const {name,email,password} = req.body;
         const user = await pool.query("SELECT * FROM users WHERE user_email =$1", [email]);
